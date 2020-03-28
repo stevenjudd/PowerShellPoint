@@ -1,0 +1,9 @@
+Title,Content,Command
+Using PowerShell To Prove That Six Is Greater Than Seven,"""six"" -gt ""seven""",yes
+But what about...,"""six"" -gt 7",yes
+"Ah, but the left to right type casting","6 -gt ""seven""",yes
+Of course this will work,6 -gt 7,yes
+"Why is ""six"" -gt ""seven""","PowerShell is using a numeric value for the string content (I'm assuming the ASCII code?). Thus, alphabetically, ""si"" comes after ""se"" therefore it is greater.",
+What we have learned,You can use the comparison operators on string content. Just make sure you are comparing like types.,
+Best practice,Cast your variables to ensure you get the results you expect,
+"""six"" -afraid ""seven""",Now all we have to do is figure out why six is afraid of seven...,
