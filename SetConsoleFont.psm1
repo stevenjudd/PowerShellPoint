@@ -1,6 +1,5 @@
 #author: unknown
-#source:
-#https://gist.github.com/anonymous/0159f0b53335199444394b54a89843e1
+#source: https://gist.github.com/anonymous/0159f0b53335199444394b54a89843e1
 
 if (-not ("Windows.Native.Kernel32" -as [type])) {
   Add-Type -TypeDefinition @"
