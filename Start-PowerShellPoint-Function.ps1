@@ -109,7 +109,7 @@ function Start-PowerShellPoint {
             $Slide.Content
             Pause
             # Write-Host "$(prompt)" -NoNewline
-            Write-Host "[Command]" -ForegroundColor Green -NoNewline
+            Write-Host "[Results]" -ForegroundColor Green -NoNewline
             Write-Host "PS> " -NoNewline
             (Invoke-Expression "$($Slide.Content)" | more)
             Pause
