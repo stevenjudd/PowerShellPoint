@@ -156,19 +156,20 @@ function Set-ConsoleFont {
   [CmdletBinding()]
   param
   (
-    [Parameter(Mandatory = $true, Position = 0)]
-    [ValidateNotNullOrEmpty()]
-    [ValidateSet("Consolas", "Lucida Console")]
-    [string] $Name,
-    [Parameter(Mandatory = $true, Position = 1)]
+    [Parameter(Position = 0)]
     [ValidateRange(5, 72)]
-    [int] $Height
+    [int] $Height = 16,
+    [Parameter(Position = 1)]
+    [ValidateSet("Consolas", "Lucida Console")]
+    [string] $Name
   )
   
   $cfi = [Windows.Native.Kernel32]::GetCurrentConsoleFontEx()
   $cfi.FontIndex = 0
   $cfi.FontFamily = 0
-  $cfi.FaceName = $Name
+  if ($Name) {
+    $cfi.FaceName = $Name
+  }
   $cfi.FontWidth = [int]($Height / 2)
   $cfi.FontHeight = $Height
   [Windows.Native.Kernel32]::SetCurrentConsoleFontEx($cfi)
