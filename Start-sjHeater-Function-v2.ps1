@@ -4,7 +4,8 @@
     .NOTES
         PowerShell function written to generate heat
         Written by Steven Judd on 2016/12/14
-        Version 20161214
+        Credit for process priority: https://community.idera.com/database-tools/powershell/powertips/b/tips/posts/lowering-powershell-process-priority
+        Version 20200328
         Updated by Steven Judd on 2020/03/28:
             Run the process in low priority mode to not interfere with the operation of the computer
             Multi-threaded using Start-ThreadJob to use more CPU
