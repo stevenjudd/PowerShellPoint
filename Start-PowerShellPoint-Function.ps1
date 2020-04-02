@@ -2,6 +2,7 @@ function Start-PowerShellPoint {
     #add "slide x of y" to Window Title - Complete
     #fix math problem with the last space before the title wrap
     #fix lack of spaces for multi-line slide content
+    #add proper help text block
 
     param (
         [Parameter(Mandatory)]
@@ -31,6 +32,7 @@ function Start-PowerShellPoint {
         Clear-Host
     }
 
+    #disable Posh-git writing to the console title
     if ($GitPromptSettings.EnableWindowTitle) {
         $ResetGitPromptSetting = $GitPromptSettings.EnableWindowTitle
         $GitPromptSettings.EnableWindowTitle = $false
@@ -48,7 +50,8 @@ function Start-PowerShellPoint {
     foreach ($Slide in $SlideContent) {
         $SlideNumber++
         $host.ui.RawUI.WindowTitle = "Slide $SlideNumber of $($SlideContent.count)"
-                
+        
+        #region Title Section
         Write-Host ("-" * $width)
         Write-Host ""
         
@@ -68,7 +71,9 @@ function Start-PowerShellPoint {
         Write-Host ""
         Write-Host ("-" * $width)
         $TitleLineCount += 4
-        
+        #endregion Title Section
+
+        #region Content Section
         #determine the number of lines of content
         $ContentLineCount = 1
         $ContentCharacterCount = $Slide.Content.Length + 2
@@ -101,6 +106,8 @@ function Start-PowerShellPoint {
         for ($i = 1; $i -le $linesLeft; $i++) {
             Write-Host ""
         }
+        #endregion Content Section
+
         Pause
         if ($Slide.command) {
             # Write-Host "$(prompt)" -NoNewline
@@ -113,7 +120,7 @@ function Start-PowerShellPoint {
             Write-Host "PS> " -NoNewline
             (Invoke-Expression "$($Slide.Content)" | more)
             Pause
-        }
+        } #end if ($Slide.command)
     } #end foreach($Slide in $SlideContent)
 
     $host.ui.RawUI.WindowTitle = $InitialTitle

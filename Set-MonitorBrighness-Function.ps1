@@ -5,10 +5,10 @@ function Set-MonitorBrighness {
     [CmdletBinding()]
     param (
         [ValidateRange(0, 100)]
-        [int]$brightness = 50
+        [int]$Brightness = 50
     )
     
-    $mymonitor = Get-WmiObject -Namespace rootwmi -Class WmiMonitorBrightnessMethods
+    $mymonitor = Get-WmiObject -Namespace "root/wmi" -Class "WmiMonitorBrightnessMethods"
     $mymonitor.WmiSetBrightness(5, $brightness)
 }
 

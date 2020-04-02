@@ -9,7 +9,6 @@
 # I reused code located here to complete this:  
 # http://powershell.com/cs/blogs/tips/archive/2015/12/14/time-for-christmas.aspx
 
-
 function Get-Frequency([string]$note) {
     # n is the number of half steps from the fixed note
 
@@ -21,6 +20,7 @@ function Get-Frequency([string]$note) {
 } # END function Get-Frequency
 
 function Get-HalfSteps([string]$note) {
+    # --- this may work better as a hashtable
     switch ($note) {
         'A' { 0 }
         'A#' { 1 }
@@ -114,7 +114,7 @@ Function Start-sjTune {
             $playNote = $matches[2]
             $freq = Get-Frequency $playNote
             [console]::Beep($freq, $duration)
-            #Start-Sleep -Milliseconds 50
+            Start-Sleep -Milliseconds 50
         } # END if ($_ -match '(\d)(.+)')
     } # END ForEach-Object
 
@@ -122,4 +122,5 @@ Function Start-sjTune {
 
 Export-ModuleMember -Function Start-sjTune
 
+# Start-sjTune ImperialMarch
 # Start-sjTune JingleBells

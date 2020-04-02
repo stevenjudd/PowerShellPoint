@@ -76,6 +76,6 @@
 
 #test runs
 # Start-sjHeater -Cores 2 -Priority BelowNormal
-Start-sjHeater -Cores 8 -Priority Idle
+# Start-sjHeater -Cores 8 -Priority Idle
 # Start-sjHeater -Cores 8 -Priority BelowNormal
 # Start-sjHeater -Cores 8 -Priority Normal
