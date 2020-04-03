@@ -12,14 +12,14 @@ Function prompt {
         $global:DadJokeContent = Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Method Get -Headers @{'Accept' = 'text/plain' }
         $Host.UI.RawUI.WindowTitle = $global:DadJokeContent
     }
-    # --- insert Dadjoke every $JokeFrequency commands
-    $JokeFrequency = 4
+    # --- insert new Dadjoke every $JokeFrequency commands
+    $JokeFrequency = 2
     if ((Get-History).count % $JokeFrequency -eq 0) {
         $global:DadJokeContent = Invoke-RestMethod -Uri https://icanhazdadjoke.com/ -Method Get -Headers @{'Accept' = 'text/plain' }
         $Host.UI.RawUI.WindowTitle = $global:DadJokeContent
     }
     # --- Do you _really_ want to see the Dad jokes?
-    # Write-Host ">>> $($global:DadJokeContent) <<<" -ForegroundColor Green
+    Write-Host ">>> $($global:DadJokeContent) <<<" -ForegroundColor Green
 
     #insert path
     Write-Host "$(Get-Location)" -NoNewline
