@@ -30,7 +30,7 @@
         Specify the priority for the process. The options available are Idle, 
         BelowNormal, and Normal. The default is BelowNormal.
     .EXAMPLE
-        Start-sjHeater -Cores 8 -Priority Normal
+        Start-sjHeater -Jobs 8 -Priority Normal
         Starting heater (CTRL+C to quit)...
         A "." will appear every minute the script is running.
     #>
@@ -75,7 +75,7 @@
 } #end Start-sjHeater function
 
 #test runs
-# Start-sjHeater -Cores 2 -Priority BelowNormal
-# Start-sjHeater -Cores 8 -Priority Idle
-# Start-sjHeater -Cores 8 -Priority BelowNormal
-# Start-sjHeater -Cores 8 -Priority Normal
+# Start-sjHeater -Jobs 2 -Priority BelowNormal
+# Start-sjHeater -Jobs 8 -Priority Idle
+# Start-sjHeater -Jobs 8 -Priority BelowNormal
+# Start-sjHeater -Jobs 8 -Priority Normal
